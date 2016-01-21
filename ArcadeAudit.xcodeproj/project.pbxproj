@@ -16,6 +16,11 @@
 		318B1BDE1C4F2552006C88B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 318B1BDC1C4F2552006C88B6 /* LaunchScreen.storyboard */; };
 		318B1BE91C4F2552006C88B6 /* ArcadeAuditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B1BE81C4F2552006C88B6 /* ArcadeAuditTests.swift */; };
 		318B1BF41C4F2552006C88B6 /* ArcadeAuditUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B1BF31C4F2552006C88B6 /* ArcadeAuditUITests.swift */; };
+		31CDCF9C1C4FEF5200AEA4BB /* Machine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CDCF9A1C4FEF5200AEA4BB /* Machine+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		31CDCF9D1C4FEF5200AEA4BB /* Machine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CDCF9B1C4FEF5200AEA4BB /* Machine.swift */; settings = {ASSET_TAGS = (); }; };
+		31CDCF9F1C501E1100AEA4BB /* AuditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CDCF9E1C501E1100AEA4BB /* AuditViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		31CDCFA21C502E1900AEA4BB /* Audit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CDCFA01C502E1900AEA4BB /* Audit+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		31CDCFA31C502E1900AEA4BB /* Audit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CDCFA11C502E1900AEA4BB /* Audit.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,11 @@
 		318B1BEF1C4F2552006C88B6 /* ArcadeAuditUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArcadeAuditUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		318B1BF31C4F2552006C88B6 /* ArcadeAuditUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcadeAuditUITests.swift; sourceTree = "<group>"; };
 		318B1BF51C4F2552006C88B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31CDCF9A1C4FEF5200AEA4BB /* Machine+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Machine+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		31CDCF9B1C4FEF5200AEA4BB /* Machine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Machine.swift; sourceTree = "<group>"; };
+		31CDCF9E1C501E1100AEA4BB /* AuditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuditViewController.swift; sourceTree = "<group>"; };
+		31CDCFA01C502E1900AEA4BB /* Audit+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Audit+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		31CDCFA11C502E1900AEA4BB /* Audit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Audit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +119,11 @@
 				318B1BDC1C4F2552006C88B6 /* LaunchScreen.storyboard */,
 				318B1BDF1C4F2552006C88B6 /* Info.plist */,
 				318B1BD01C4F2552006C88B6 /* ArcadeAudit.xcdatamodeld */,
+				31CDCF9A1C4FEF5200AEA4BB /* Machine+CoreDataProperties.swift */,
+				31CDCF9B1C4FEF5200AEA4BB /* Machine.swift */,
+				31CDCFA01C502E1900AEA4BB /* Audit+CoreDataProperties.swift */,
+				31CDCFA11C502E1900AEA4BB /* Audit.swift */,
+				31CDCF9E1C501E1100AEA4BB /* AuditViewController.swift */,
 			);
 			path = ArcadeAudit;
 			sourceTree = "<group>";
@@ -198,6 +213,7 @@
 				TargetAttributes = {
 					318B1BCA1C4F2552006C88B6 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = X2HGB2H643;
 					};
 					318B1BE31C4F2552006C88B6 = {
 						CreatedOnToolsVersion = 7.0;
@@ -263,8 +279,13 @@
 			files = (
 				318B1BCF1C4F2552006C88B6 /* AppDelegate.swift in Sources */,
 				318B1BD21C4F2552006C88B6 /* ArcadeAudit.xcdatamodeld in Sources */,
+				31CDCF9C1C4FEF5200AEA4BB /* Machine+CoreDataProperties.swift in Sources */,
+				31CDCFA31C502E1900AEA4BB /* Audit.swift in Sources */,
+				31CDCFA21C502E1900AEA4BB /* Audit+CoreDataProperties.swift in Sources */,
 				318B1BD41C4F2552006C88B6 /* MasterViewController.swift in Sources */,
+				31CDCF9F1C501E1100AEA4BB /* AuditViewController.swift in Sources */,
 				318B1BD61C4F2552006C88B6 /* DetailViewController.swift in Sources */,
+				31CDCF9D1C4FEF5200AEA4BB /* Machine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,10 +427,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ArcadeAudit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.clearimagery.ArcadeAudit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -417,10 +441,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ArcadeAudit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.clearimagery.ArcadeAudit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -491,6 +518,7 @@
 				318B1BFA1C4F2552006C88B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		318B1BFB1C4F2552006C88B6 /* Build configuration list for PBXNativeTarget "ArcadeAuditTests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +527,7 @@
 				318B1BFD1C4F2552006C88B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		318B1BFE1C4F2552006C88B6 /* Build configuration list for PBXNativeTarget "ArcadeAuditUITests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +536,7 @@
 				318B1C001C4F2552006C88B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -30,10 +30,15 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-
+    // MARK: Properties
+    @IBOutlet weak var machineName: UITextField!
+    @IBOutlet weak var numTicketsStepper: UIStepper!
+    @IBOutlet weak var numTokensLabel: UILabel!
+    @IBOutlet weak var counterReadsGames: UISwitch!
+    @IBOutlet weak var numTicketsLabel: UILabel!
+    @IBOutlet weak var numTokensStepper: UIStepper!
 
     var detailItem: AnyObject? {
         didSet {
@@ -44,9 +49,19 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                label.text = detail.valueForKey("timeStamp")!.description
+        if let detail = self.detailItem as! Machine? {
+            if let machineNameField = self.machineName {
+                machineNameField.text = detail.machineName
+                machineNameField.delegate = self
+            }
+            if let numTokensField = self.numTokensLabel {
+                numTokensField.text = String(detail.coinSlots)
+            }
+            if let numTicketsField = self.numTicketsLabel {
+                numTicketsField.text = String(detail.ticketMechs)
+            }
+            if let counterReadsGamesField = self.counterReadsGames {
+                counterReadsGamesField.on = detail.countsGames
             }
         }
     }
@@ -61,7 +76,50 @@ class DetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        updateFields()
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @IBAction func stepperValueChanged(sender: UIStepper) {
+        updateFields()
+    }
+    
+    @IBAction func switchValueChanged(sender: UISwitch) {
+        updateFields()
+    }
 
+    func updateFields() {
+        if let detail = self.detailItem as! Machine? {
+            detail.machineName = machineName.text
+            detail.countsGames = counterReadsGames.on
+            detail.coinSlots = Int32(numTokensStepper.value)
+            detail.ticketMechs = Int32(numTicketsStepper.value)
+            do {
+                try detail.managedObjectContext!.save()
+            } catch {
+                abort()
+            }
+        }
+        numTokensLabel.text = String(Int(numTokensStepper.value))
+        numTicketsLabel.text = String(Int(numTicketsStepper.value))
+    }
 
+    // MARK: - Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "viewAudits" {
+                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! AuditViewController
+                controller.parentItem = self.detailItem as! Machine?
+                controller.managedObjectContext = (self.detailItem as! Machine?)?.managedObjectContext
+                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+                controller.navigationItem.leftItemsSupplementBackButton = true
+        }
+    }
 }
 
