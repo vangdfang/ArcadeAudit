@@ -99,64 +99,64 @@ class AuditDetailController: UIViewController, UITextFieldDelegate {
         // Update the user interface for the detail item.
         if let detail = self.detailItem as! Audit? {
             if let gamesField = self.games {
-                gamesField.text = (detail.games! != 0) ? detail.games?.stringValue : ""
+                gamesField.text = ((detail.games ?? 0) != 0) ? detail.games?.stringValue : ""
                 gamesField.delegate = self
                 addButtonBarTo(gamesField)
             }
             if let tokensField = self.tokens {
-                tokensField.text = (detail.tokens! != 0) ? detail.tokens?.stringValue : ""
+                tokensField.text = ((detail.tokens ?? 0) != 0) ? detail.tokens?.stringValue : ""
                 tokensField.delegate = self
                 addButtonBarTo(tokensField)
             }
             if let ticketsField = self.tickets {
-                ticketsField.text = (detail.tickets! != 0) ? detail.tickets?.stringValue : ""
+                ticketsField.text = ((detail.tickets ?? 0) != 0) ? detail.tickets?.stringValue : ""
                 ticketsField.delegate = self
                 addButtonBarTo(ticketsField)
             }
             if let tokensOneField = self.tokensOne {
-                tokensOneField.text = (detail.tokenOne! != 0) ? detail.tokenOne?.stringValue : ""
+                tokensOneField.text = ((detail.tokenOne ?? 0) != 0) ? detail.tokenOne?.stringValue : ""
                 tokensOneField.delegate = self
                 tokensOneField.enabled = detail.machine!.coinSlots >= 1
                 addButtonBarTo(tokensOneField)
             }
             if let tokensTwoField = self.tokensTwo {
-                tokensTwoField.text = (detail.tokenTwo! != 0) ? detail.tokenTwo?.stringValue : ""
+                tokensTwoField.text = ((detail.tokenTwo ?? 0) != 0) ? detail.tokenTwo?.stringValue : ""
                 tokensTwoField.delegate = self
                 tokensTwoField.enabled = detail.machine!.coinSlots >= 2
                 addButtonBarTo(tokensTwoField)
             }
             if let tokensThreeField = self.tokensThree {
-                tokensThreeField.text = (detail.tokenThree! != 0) ? detail.tokenThree?.stringValue : ""
+                tokensThreeField.text = ((detail.tokenThree ?? 0) != 0) ? detail.tokenThree?.stringValue : ""
                 tokensThreeField.delegate = self
                 tokensThreeField.enabled = detail.machine!.coinSlots >= 3
                 addButtonBarTo(tokensThreeField)
             }
             if let tokensFourField = self.tokensFour {
-                tokensFourField.text = (detail.tokenFour! != 0) ? detail.tokenFour?.stringValue : ""
+                tokensFourField.text = ((detail.tokenFour ?? 0) != 0) ? detail.tokenFour?.stringValue : ""
                 tokensFourField.delegate = self
                 tokensFourField.enabled = detail.machine!.coinSlots >= 4
                 addButtonBarTo(tokensFourField)
             }
             if let ticketsOneField = self.ticketsOne {
-                ticketsOneField.text = (detail.ticketOne! != 0) ? detail.ticketOne?.stringValue : ""
+                ticketsOneField.text = ((detail.ticketOne ?? 0) != 0) ? detail.ticketOne?.stringValue : ""
                 ticketsOneField.delegate = self
                 ticketsOneField.enabled = detail.machine!.ticketMechs >= 1
                 addButtonBarTo(ticketsOneField)
             }
             if let ticketsTwoField = self.ticketsTwo {
-                ticketsTwoField.text = (detail.ticketTwo! != 0) ? detail.ticketTwo?.stringValue : ""
+                ticketsTwoField.text = ((detail.ticketTwo ?? 0) != 0) ? detail.ticketTwo?.stringValue : ""
                 ticketsTwoField.delegate = self
                 ticketsTwoField.enabled = detail.machine!.ticketMechs >= 2
                 addButtonBarTo(ticketsTwoField)
             }
             if let ticketsThreeField = self.ticketsThree {
-                ticketsThreeField.text = (detail.ticketThree! != 0) ? detail.ticketThree?.stringValue : ""
+                ticketsThreeField.text = ((detail.ticketThree ?? 0) != 0) ? detail.ticketThree?.stringValue : ""
                 ticketsThreeField.delegate = self
                 ticketsThreeField.enabled = detail.machine!.ticketMechs >= 3
                 addButtonBarTo(ticketsThreeField)
             }
             if let ticketsFourField = self.ticketsFour {
-                ticketsFourField.text = (detail.ticketFour! != 0) ? detail.ticketFour?.stringValue : ""
+                ticketsFourField.text = ((detail.ticketFour ?? 0) != 0) ? detail.ticketFour?.stringValue : ""
                 ticketsFourField.delegate = self
                 ticketsFourField.enabled = detail.machine!.ticketMechs >= 4
                 addButtonBarTo(ticketsFourField)

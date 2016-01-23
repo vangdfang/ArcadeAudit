@@ -120,7 +120,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "viewAudits" {
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! AuditViewController
+                let controller = segue.destinationViewController as! AuditViewController
                 controller.parentItem = self.detailItem as! Machine?
                 controller.managedObjectContext = (self.detailItem as! Machine?)?.managedObjectContext
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
