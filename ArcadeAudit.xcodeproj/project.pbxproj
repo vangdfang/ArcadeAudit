@@ -21,6 +21,7 @@
 		31CDCF9F1C501E1100AEA4BB /* AuditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CDCF9E1C501E1100AEA4BB /* AuditViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		31CDCFA21C502E1900AEA4BB /* Audit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CDCFA01C502E1900AEA4BB /* Audit+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
 		31CDCFA31C502E1900AEA4BB /* Audit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CDCFA11C502E1900AEA4BB /* Audit.swift */; settings = {ASSET_TAGS = (); }; };
+		31CDCFA51C5134B400AEA4BB /* AuditDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CDCFA41C5134B400AEA4BB /* AuditDetailController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		31CDCF9E1C501E1100AEA4BB /* AuditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuditViewController.swift; sourceTree = "<group>"; };
 		31CDCFA01C502E1900AEA4BB /* Audit+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Audit+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		31CDCFA11C502E1900AEA4BB /* Audit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Audit.swift; sourceTree = "<group>"; };
+		31CDCFA41C5134B400AEA4BB /* AuditDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuditDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				31CDCFA01C502E1900AEA4BB /* Audit+CoreDataProperties.swift */,
 				31CDCFA11C502E1900AEA4BB /* Audit.swift */,
 				31CDCF9E1C501E1100AEA4BB /* AuditViewController.swift */,
+				31CDCFA41C5134B400AEA4BB /* AuditDetailController.swift */,
 			);
 			path = ArcadeAudit;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				31CDCFA31C502E1900AEA4BB /* Audit.swift in Sources */,
 				31CDCFA21C502E1900AEA4BB /* Audit+CoreDataProperties.swift in Sources */,
 				318B1BD41C4F2552006C88B6 /* MasterViewController.swift in Sources */,
+				31CDCFA51C5134B400AEA4BB /* AuditDetailController.swift in Sources */,
 				31CDCF9F1C501E1100AEA4BB /* AuditViewController.swift in Sources */,
 				318B1BD61C4F2552006C88B6 /* DetailViewController.swift in Sources */,
 				31CDCF9D1C4FEF5200AEA4BB /* Machine.swift in Sources */,

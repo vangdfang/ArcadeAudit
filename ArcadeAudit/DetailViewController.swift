@@ -60,6 +60,12 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             if let numTicketsField = self.numTicketsLabel {
                 numTicketsField.text = String(detail.ticketMechs)
             }
+            if let numTokensStepperField = self.numTokensStepper {
+                numTokensStepperField.value = Double(detail.coinSlots)
+            }
+            if let numTicketsStepperField = self.numTicketsStepper {
+                numTicketsStepperField.value = Double(detail.ticketMechs)
+            }
             if let counterReadsGamesField = self.counterReadsGames {
                 counterReadsGamesField.on = detail.countsGames
             }
