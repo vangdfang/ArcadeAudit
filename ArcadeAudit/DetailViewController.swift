@@ -34,6 +34,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: Properties
     @IBOutlet weak var machineName: UITextField!
+    @IBOutlet weak var machineIdentifier: UITextField!
+    @IBOutlet weak var costPerGame: UITextField!
     @IBOutlet weak var numTicketsStepper: UIStepper!
     @IBOutlet weak var numTokensLabel: UILabel!
     @IBOutlet weak var counterReadsGames: UISwitch!
@@ -53,6 +55,14 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             if let machineNameField = self.machineName {
                 machineNameField.text = detail.machineName
                 machineNameField.delegate = self
+            }
+            if let machineIdentifierField = self.machineIdentifier {
+                machineIdentifierField.text = detail.machineIdentifier
+                machineIdentifierField.delegate = self
+            }
+            if let costPerGameField = self.costPerGame {
+                costPerGameField.text = (detail.costPerGame ?? 0 != 0) ? String(format: "%0.02f", detail.costPerGame) : ""
+                costPerGameField.delegate = self
             }
             if let numTokensField = self.numTokensLabel {
                 numTokensField.text = String(detail.coinSlots)
@@ -104,6 +114,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     func updateFields() {
         if let detail = self.detailItem as! Machine? {
             detail.machineName = machineName.text
+            detail.machineIdentifier = machineIdentifier.text
+            detail.costPerGame = Double(costPerGame.text!) ?? 0.0
             detail.countsGames = counterReadsGames.on
             detail.coinSlots = Int32(numTokensStepper.value)
             detail.ticketMechs = Int32(numTicketsStepper.value)

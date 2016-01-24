@@ -26,19 +26,19 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="PrA-eE-Yia" userLabel="Token Counters">
-                                <rect key="frame" x="486" y="108" width="94" height="29"/>
+                                <rect key="frame" x="486" y="146" width="94" height="29"/>
                                 <connections>
                                     <action selector="stepperValueChanged:" destination="JEX-9P-axG" eventType="valueChanged" id="eJ4-yw-czz"/>
                                 </connections>
                             </stepper>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="HRn-JG-fAQ" userLabel="Ticket Counters">
-                                <rect key="frame" x="486" y="144" width="94" height="29"/>
+                                <rect key="frame" x="486" y="182" width="94" height="29"/>
                                 <connections>
                                     <action selector="stepperValueChanged:" destination="JEX-9P-axG" eventType="valueChanged" id="Jgj-gI-9wE"/>
                                 </connections>
                             </stepper>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xto-KV-h3Z" userLabel="Counter Reads Games">
-                                <rect key="frame" x="531" y="180" width="51" height="31"/>
+                                <rect key="frame" x="531" y="218" width="51" height="31"/>
                                 <connections>
                                     <action selector="switchValueChanged:" destination="JEX-9P-axG" eventType="valueChanged" id="RT0-Xo-0ng"/>
                                 </connections>
@@ -50,47 +50,58 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Token Counters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3SB-ZK-AMt">
-                                <rect key="frame" x="12" y="112" width="269" height="20"/>
+                                <rect key="frame" x="12" y="150" width="269" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ticket Counters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cn-hZ-aGW">
-                                <rect key="frame" x="12" y="148" width="269" height="20"/>
+                                <rect key="frame" x="12" y="186" width="269" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="numTokens" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xdg-VG-KRn">
-                                <rect key="frame" x="311" y="112" width="167" height="20"/>
+                                <rect key="frame" x="311" y="150" width="167" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="numTickets" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftO-D1-sDh">
-                                <rect key="frame" x="311" y="148" width="167" height="20"/>
+                                <rect key="frame" x="311" y="186" width="167" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count Games" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OsJ-84-tub">
-                                <rect key="frame" x="12" y="182" width="269" height="26"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost per Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kx3-Ah-k48">
-                                <rect key="frame" x="12" y="223" width="269" height="22"/>
+                                <rect key="frame" x="12" y="220" width="269" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Qm6-eK-Yv1">
-                                <rect key="frame" x="486" y="219" width="94" height="30"/>
+                                <rect key="frame" x="486" y="257" width="94" height="30"/>
                                 <accessibility key="accessibilityConfiguration" identifier="costPerGame"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost per Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kx3-Ah-k48">
+                                <rect key="frame" x="12" y="261" width="269" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G7a-OP-Wy2">
+                                <rect key="frame" x="311" y="108" width="269" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Barcode Identifier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEU-em-HFb">
+                                <rect key="frame" x="12" y="112" width="269" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -109,25 +120,32 @@
                             <constraint firstItem="9cn-hZ-aGW" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="-8" id="B6J-7b-B53"/>
                             <constraint firstItem="OsJ-84-tub" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="-8" id="C7I-AU-ATy"/>
                             <constraint firstItem="Xhh-mL-H7K" firstAttribute="centerY" secondItem="BvL-t7-Ual" secondAttribute="centerY" id="FEL-jx-Beg"/>
+                            <constraint firstItem="G7a-OP-Wy2" firstAttribute="top" secondItem="BvL-t7-Ual" secondAttribute="bottom" constant="8" id="GTM-Cl-nCo"/>
                             <constraint firstItem="Kx3-Ah-k48" firstAttribute="top" secondItem="OsJ-84-tub" secondAttribute="bottom" constant="15" id="HPV-P2-ArE"/>
+                            <constraint firstItem="G7a-OP-Wy2" firstAttribute="trailing" secondItem="BvL-t7-Ual" secondAttribute="trailing" id="IRl-tl-VrY"/>
                             <constraint firstItem="Xdg-VG-KRn" firstAttribute="leading" secondItem="BvL-t7-Ual" secondAttribute="leading" id="JCN-ZS-5Zd"/>
                             <constraint firstItem="xto-KV-h3Z" firstAttribute="trailing" secondItem="Qm6-eK-Yv1" secondAttribute="trailing" id="Khi-hc-V6W"/>
                             <constraint firstItem="OsJ-84-tub" firstAttribute="leading" secondItem="Kx3-Ah-k48" secondAttribute="leading" id="N09-Ot-5i5"/>
                             <constraint firstItem="Xhh-mL-H7K" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="-8" id="NQX-nM-u5F"/>
                             <constraint firstItem="HRn-JG-fAQ" firstAttribute="centerY" secondItem="ftO-D1-sDh" secondAttribute="centerY" id="OyM-JM-N2A"/>
+                            <constraint firstItem="G7a-OP-Wy2" firstAttribute="width" secondItem="BvL-t7-Ual" secondAttribute="width" id="VaU-j7-kQF"/>
                             <constraint firstItem="PrA-eE-Yia" firstAttribute="leading" secondItem="Xdg-VG-KRn" secondAttribute="trailing" constant="8" id="WmT-im-Ina"/>
                             <constraint firstItem="Xhh-mL-H7K" firstAttribute="width" secondItem="OsJ-84-tub" secondAttribute="width" id="Yr7-Wc-DtG"/>
+                            <constraint firstItem="PrA-eE-Yia" firstAttribute="top" secondItem="G7a-OP-Wy2" secondAttribute="bottom" constant="8" id="Zcj-9m-S2d"/>
                             <constraint firstItem="HRn-JG-fAQ" firstAttribute="leading" secondItem="ftO-D1-sDh" secondAttribute="trailing" constant="8" id="ayl-bM-boY"/>
                             <constraint firstItem="ftO-D1-sDh" firstAttribute="width" secondItem="Xdg-VG-KRn" secondAttribute="width" id="b72-j4-MZH"/>
                             <constraint firstItem="Xdg-VG-KRn" firstAttribute="centerY" secondItem="PrA-eE-Yia" secondAttribute="centerY" id="deu-zG-zTU"/>
-                            <constraint firstItem="Xdg-VG-KRn" firstAttribute="top" secondItem="BvL-t7-Ual" secondAttribute="bottom" constant="12" id="gxE-RR-xA7"/>
+                            <constraint firstItem="iEU-em-HFb" firstAttribute="leading" secondItem="Xhh-mL-H7K" secondAttribute="leading" id="fV7-qD-qZv"/>
+                            <constraint firstItem="Xdg-VG-KRn" firstAttribute="top" secondItem="G7a-OP-Wy2" secondAttribute="bottom" constant="12" id="hwb-M4-orU"/>
                             <constraint firstItem="OsJ-84-tub" firstAttribute="width" secondItem="Kx3-Ah-k48" secondAttribute="width" id="ll9-WV-POE"/>
                             <constraint firstItem="OsJ-84-tub" firstAttribute="centerY" secondItem="xto-KV-h3Z" secondAttribute="centerY" id="m4X-5w-74i"/>
                             <constraint firstItem="9cn-hZ-aGW" firstAttribute="centerY" secondItem="ftO-D1-sDh" secondAttribute="centerY" id="nZT-kI-NFJ"/>
                             <constraint firstItem="3SB-ZK-AMt" firstAttribute="centerY" secondItem="Xdg-VG-KRn" secondAttribute="centerY" id="qsn-nd-6B9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HRn-JG-fAQ" secondAttribute="trailing" id="tOb-y0-YBR"/>
+                            <constraint firstItem="iEU-em-HFb" firstAttribute="centerY" secondItem="G7a-OP-Wy2" secondAttribute="centerY" id="tnh-We-zD7"/>
                             <constraint firstItem="xto-KV-h3Z" firstAttribute="top" secondItem="ftO-D1-sDh" secondAttribute="bottom" constant="12" id="u8z-9X-MOT"/>
                             <constraint firstItem="Xhh-mL-H7K" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="11" id="vRx-Th-1Ig"/>
+                            <constraint firstItem="Xhh-mL-H7K" firstAttribute="width" secondItem="iEU-em-HFb" secondAttribute="width" id="vwV-LV-4x0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PrA-eE-Yia" secondAttribute="trailing" id="xYz-Im-BQy"/>
                             <constraint firstItem="HRn-JG-fAQ" firstAttribute="width" secondItem="Qm6-eK-Yv1" secondAttribute="width" id="yc7-tU-9Ad"/>
                         </constraints>
@@ -141,7 +159,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="costPerGame" destination="Qm6-eK-Yv1" id="cSZ-JE-oqk"/>
                         <outlet property="counterReadsGames" destination="xto-KV-h3Z" id="xaI-f4-dgs"/>
+                        <outlet property="machineIdentifier" destination="G7a-OP-Wy2" id="rKp-hX-xWA"/>
                         <outlet property="machineName" destination="BvL-t7-Ual" id="w8q-zo-f2H"/>
                         <outlet property="numTicketsLabel" destination="ftO-D1-sDh" id="JQp-tw-34E"/>
                         <outlet property="numTicketsStepper" destination="HRn-JG-fAQ" id="xle-Qb-mQS"/>

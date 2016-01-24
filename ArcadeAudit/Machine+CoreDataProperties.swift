@@ -2,7 +2,7 @@
 //  Machine+CoreDataProperties.swift
 //  ArcadeAudit
 //
-//  Created by Doug Kelly on 1/20/16.
+//  Created by Doug Kelly on 1/23/16.
 //  Copyright © 2016 Doug Kelly. All rights reserved.
 //
 //  Redistribution and use in source and binary forms, with or without
@@ -37,8 +37,11 @@ import CoreData
 extension Machine {
 
     @NSManaged var coinSlots: Int32
+    @NSManaged var countsGames: Bool
+    @NSManaged var machineIdentifier: String?
     @NSManaged var machineName: String?
     @NSManaged var ticketMechs: Int32
-    @NSManaged var countsGames: Bool
+    @NSManaged var costPerGame: Double
+    @NSManaged var audits: NSSet?
 
 }
