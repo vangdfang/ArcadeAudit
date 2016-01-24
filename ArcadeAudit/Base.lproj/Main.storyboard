@@ -91,7 +91,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G7a-OP-Wy2">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="G7a-OP-Wy2">
                                 <rect key="frame" x="311" y="108" width="269" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -171,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="709" y="129"/>
+            <point key="canvasLocation" x="1461" y="-630"/>
         </scene>
         <!--Audits View Controller-->
         <scene sceneID="mjy-00-yer">
@@ -211,7 +211,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CE6-QM-1iN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1640" y="129"/>
+            <point key="canvasLocation" x="2240" y="-630"/>
         </scene>
         <!--Audit-->
         <scene sceneID="Axh-uo-i0i">
@@ -460,7 +460,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTr-zd-1r4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1640" y="881"/>
+            <point key="canvasLocation" x="3112" y="-1742"/>
         </scene>
         <!--Audit-->
         <scene sceneID="9Az-O0-yTr">
@@ -476,10 +476,33 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="5Aq-sR-5XW" userLabel="Capture"/>
+                    <navigationItem key="navigationItem" id="7QY-oa-Xlg"/>
+                    <connections>
+                        <outlet property="videoView" destination="sgO-3I-JCK" id="v0L-pz-D0X"/>
+                        <segue destination="JEX-9P-axG" kind="show" identifier="addMachine" id="aXs-H7-qUv"/>
+                        <segue destination="eho-Sb-Q5H" kind="show" identifier="addAudit" id="MS0-sx-foc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QLv-Jt-uPj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-60" y="-1603"/>
+            <point key="canvasLocation" x="1461" y="-1771"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Myd-25-aJy">
+            <objects>
+                <navigationController id="WWf-PT-bLB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="dQE-5L-joA"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cZQ-sh-0ba">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="EZu-eh-ho6" kind="relationship" relationship="rootViewController" id="bko-ZJ-g9P"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qvc-Ve-rZk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-45" y="-1771"/>
         </scene>
         <!--ArcadeAudit-->
         <scene sceneID="WJ6-9I-E8B">
@@ -492,8 +515,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="EZu-eh-ho6" kind="relationship" relationship="viewControllers" id="rAR-h6-G6Q"/>
-                        <segue destination="TuN-N4-FRh" kind="relationship" relationship="viewControllers" id="VcN-Mc-qqY"/>
+                        <segue destination="WWf-PT-bLB" kind="relationship" relationship="viewControllers" id="Leg-sW-ozn"/>
+                        <segue destination="TuN-N4-FRh" kind="relationship" relationship="viewControllers" id="qIh-FR-Pnl"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ViY-Qd-xpD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -537,7 +560,7 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="gIR-yz-isR"/>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="gIR-yz-isR"/>
                     <navigationItem key="navigationItem" title="Machines" id="Zdf-7t-Un8" userLabel="Machines"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
@@ -562,4 +585,8 @@
             <point key="canvasLocation" x="-45" y="-630"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="aXs-H7-qUv"/>
+        <segue reference="AQc-0v-WdP"/>
+    </inferredMetricsTieBreakers>
 </document>

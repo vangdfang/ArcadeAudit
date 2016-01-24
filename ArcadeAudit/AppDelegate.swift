@@ -45,6 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
                 if let viewController = navigationController.visibleViewController as? MasterViewController {
                     viewController.managedObjectContext = self.managedObjectContext
                 }
+                if let viewController = navigationController.visibleViewController as? CameraController {
+                    viewController.managedObjectContext = self.managedObjectContext
+                }
             }
         }
         /*let splitViewController = self.window!.rootViewController as! UISplitViewController
