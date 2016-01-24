@@ -69,6 +69,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             if let counterReadsGamesField = self.counterReadsGames {
                 counterReadsGamesField.on = detail.countsGames
             }
+            
         }
     }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="15E27e" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10118.6" systemVersion="15E27e" minimumToolsVersion="Automatic">
     <entity name="Audit" representedClassName=".Audit" syncable="YES">
         <attribute name="dateTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="games" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -17,6 +17,7 @@
     </entity>
     <entity name="Machine" representedClassName=".Machine">
         <attribute name="coinSlots" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="costPerGame" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="countsGames" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="machineIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="machineName" optional="YES" attributeType="String">
@@ -28,6 +29,6 @@
     </entity>
     <elements>
         <element name="Audit" positionX="466" positionY="213" width="128" height="238"/>
-        <element name="Machine" positionX="261" positionY="189" width="128" height="133"/>
+        <element name="Machine" positionX="261" positionY="189" width="128" height="150"/>
     </elements>
 </model>
