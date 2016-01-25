@@ -158,6 +158,7 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
                     abort()
                 }
                 controller.detailItem = newAudit
+                controller.managedObjectContext = managedObjectContext
             }
         } else if segue.identifier == "addMachine" {
             if let machineIdentifier = sender as? String {
@@ -176,6 +177,7 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
                     abort()
                 }
                 controller.detailItem = newMachine
+                controller.managedObjectContext = managedObjectContext
             }
         }
     }

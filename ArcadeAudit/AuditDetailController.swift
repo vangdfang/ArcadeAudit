@@ -29,6 +29,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AuditDetailController: UIViewController, UITextFieldDelegate {
     
@@ -55,6 +56,8 @@ class AuditDetailController: UIViewController, UITextFieldDelegate {
             self.configureView()
         }
     }
+    
+    var managedObjectContext: NSManagedObjectContext?
     
     private func addButtonBarTo(textField: UITextField) {
         let previousBarButton = UIBarButtonItem(title: "Prev", style: UIBarButtonItemStyle.Plain, target: self, action: "didTapPrevious:")

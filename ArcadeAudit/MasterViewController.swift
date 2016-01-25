@@ -83,6 +83,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 let object = self.fetchedResultsController.objectAtIndexPath(indexPath)
                 let controller = segue.destinationViewController as! DetailViewController
                 controller.detailItem = object
+                controller.managedObjectContext = self.managedObjectContext
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }

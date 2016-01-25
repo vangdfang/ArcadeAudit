@@ -29,6 +29,7 @@
 //
 
 import UIKit
+import CoreData
 
 class DetailViewController: UIViewController, UITextFieldDelegate {
 
@@ -41,6 +42,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var counterReadsGames: UISwitch!
     @IBOutlet weak var numTicketsLabel: UILabel!
     @IBOutlet weak var numTokensStepper: UIStepper!
+    @IBOutlet weak var revenueSevenDays: UILabel!
+    @IBOutlet weak var ticketsSevenDays: UILabel!
 
     var detailItem: AnyObject? {
         didSet {
@@ -48,6 +51,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             self.configureView()
         }
     }
+    
+    var managedObjectContext: NSManagedObjectContext?
 
     func configureView() {
         // Update the user interface for the detail item.
@@ -79,7 +84,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             if let counterReadsGamesField = self.counterReadsGames {
                 counterReadsGamesField.on = detail.countsGames
             }
-            
+            updateEarnings()
         }
     }
 
@@ -87,6 +92,11 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.updateEarnings()
     }
 
     override func didReceiveMemoryWarning() {
@@ -127,6 +137,40 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         }
         numTokensLabel.text = String(Int(numTokensStepper.value))
         numTicketsLabel.text = String(Int(numTicketsStepper.value))
+        updateEarnings()
+    }
+    
+    func updateEarnings() {
+        if let detail = self.detailItem as! Machine? {
+            if let context = managedObjectContext {
+                do {
+                    let fetchRequest = NSFetchRequest(entityName: "Audit")
+                    let machinePredicate = NSPredicate(format: "machine == %@", argumentArray: [detail])
+                    let date = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Day, value: -7, toDate: NSDate(), options: NSCalendarOptions(rawValue: 0))
+                    let datePredicate = NSPredicate(format: "dateTime >= %@", argumentArray: [date!])
+                    fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [machinePredicate, datePredicate])
+                    let audits = try context.executeFetchRequest(fetchRequest) as! [Audit]
+                    var totalRevenue = 0
+                    var totalTickets = 0
+                    for audit in audits {
+                        if detail.countsGames {
+                            totalRevenue += Int(audit.games ?? 0)
+                        } else {
+                            totalRevenue += Int(audit.tokens ?? 0)
+                        }
+                        totalTickets += Int(audit.tickets ?? 0)
+                    }
+                    if let revenueSevenDaysLabel = self.revenueSevenDays {
+                        revenueSevenDaysLabel.text = String(format: "%0.02f", Double(totalRevenue) * detail.costPerGame)
+                    }
+                    if let ticketsSevenDaysLabel = self.ticketsSevenDays {
+                        ticketsSevenDaysLabel.text = String(totalTickets)
+                    }
+                } catch {
+                    print("Error while fetching recent audits: \(error)")
+                }
+            }
+        }
     }
 
     // MARK: - Segues

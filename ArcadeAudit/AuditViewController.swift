@@ -82,6 +82,7 @@ class AuditViewController: UITableViewController, NSFetchedResultsControllerDele
                 let object = self.fetchedResultsController.objectAtIndexPath(indexPath)
                 let controller = segue.destinationViewController as! AuditDetailController
                 controller.detailItem = object
+                controller.managedObjectContext = managedObjectContext
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
