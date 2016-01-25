@@ -32,18 +32,20 @@ import UIKit
 import CoreData
 
 class DetailViewController: UIViewController, UITextFieldDelegate {
-
+    
     // MARK: Properties
     @IBOutlet weak var machineName: UITextField!
     @IBOutlet weak var machineIdentifier: UITextField!
-    @IBOutlet weak var costPerGame: UITextField!
-    @IBOutlet weak var numTicketsStepper: UIStepper!
-    @IBOutlet weak var numTokensLabel: UILabel!
-    @IBOutlet weak var counterReadsGames: UISwitch!
-    @IBOutlet weak var numTicketsLabel: UILabel!
     @IBOutlet weak var numTokensStepper: UIStepper!
+    @IBOutlet weak var numTokensLabel: UILabel!
+    @IBOutlet weak var numTicketsStepper: UIStepper!
+    @IBOutlet weak var numTicketsLabel: UILabel!
+    @IBOutlet weak var counterReadsGames: UISwitch!
+    @IBOutlet weak var costPerGame: UITextField!
     @IBOutlet weak var revenueSevenDays: UILabel!
     @IBOutlet weak var ticketsSevenDays: UILabel!
+    @IBOutlet weak var revenueThirtyDays: UILabel!
+    @IBOutlet weak var ticketsThirtyDays: UILabel!
 
     var detailItem: AnyObject? {
         didSet {
@@ -141,12 +143,26 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     }
     
     func updateEarnings() {
+        if let revenueSevenDaysLabel = revenueSevenDays {
+            if let ticketsSevenDaysLabel = ticketsSevenDays {
+                updateEarningsForRange(7, revenueLabel: revenueSevenDaysLabel, ticketsLabel: ticketsSevenDaysLabel)
+            }
+        }
+        if let revenueThirtyDaysLabel = revenueThirtyDays {
+            if let ticketsThirtyDaysLabel = ticketsThirtyDays {
+                updateEarningsForRange(30, revenueLabel: revenueThirtyDaysLabel, ticketsLabel: ticketsThirtyDaysLabel)
+            }
+        }
+    }
+    
+    func updateEarningsForRange(previousDays: Int, revenueLabel: UILabel, ticketsLabel: UILabel)
+    {
         if let detail = self.detailItem as! Machine? {
             if let context = managedObjectContext {
                 do {
                     let fetchRequest = NSFetchRequest(entityName: "Audit")
                     let machinePredicate = NSPredicate(format: "machine == %@", argumentArray: [detail])
-                    let date = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Day, value: -7, toDate: NSDate(), options: NSCalendarOptions(rawValue: 0))
+                    let date = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Day, value: -previousDays, toDate: NSDate(), options: NSCalendarOptions(rawValue: 0))
                     let datePredicate = NSPredicate(format: "dateTime >= %@", argumentArray: [date!])
                     fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [machinePredicate, datePredicate])
                     let audits = try context.executeFetchRequest(fetchRequest) as! [Audit]
@@ -160,12 +176,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
                         }
                         totalTickets += Int(audit.tickets ?? 0)
                     }
-                    if let revenueSevenDaysLabel = self.revenueSevenDays {
-                        revenueSevenDaysLabel.text = String(format: "%0.02f", Double(totalRevenue) * detail.costPerGame)
-                    }
-                    if let ticketsSevenDaysLabel = self.ticketsSevenDays {
-                        ticketsSevenDaysLabel.text = String(totalTickets)
-                    }
+                        revenueLabel.text = String(format: "%0.02f", Double(totalRevenue) * detail.costPerGame)
+                        ticketsLabel.text = String(totalTickets)
                 } catch {
                     print("Error while fetching recent audits: \(error)")
                 }
