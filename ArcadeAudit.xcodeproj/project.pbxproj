@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		316EE6FC1C54706B0048829F /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316EE6FB1C54706B0048829F /* CameraController.swift */; };
+		316EE7001C56D1B70048829F /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316EE6FF1C56D1B70048829F /* HistoryViewController.swift */; };
 		318B1BCF1C4F2552006C88B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B1BCE1C4F2552006C88B6 /* AppDelegate.swift */; };
 		318B1BD21C4F2552006C88B6 /* ArcadeAudit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 318B1BD01C4F2552006C88B6 /* ArcadeAudit.xcdatamodeld */; };
 		318B1BD41C4F2552006C88B6 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B1BD31C4F2552006C88B6 /* MasterViewController.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		316EE6FB1C54706B0048829F /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		316EE6FF1C56D1B70048829F /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		318B1BCB1C4F2552006C88B6 /* ArcadeAudit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArcadeAudit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		318B1BCE1C4F2552006C88B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		318B1BD11C4F2552006C88B6 /* ArcadeAudit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ArcadeAudit.xcdatamodel; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				31CDCF9E1C501E1100AEA4BB /* AuditViewController.swift */,
 				31CDCFA41C5134B400AEA4BB /* AuditDetailController.swift */,
 				316EE6FB1C54706B0048829F /* CameraController.swift */,
+				316EE6FF1C56D1B70048829F /* HistoryViewController.swift */,
 			);
 			path = ArcadeAudit;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				318B1BCF1C4F2552006C88B6 /* AppDelegate.swift in Sources */,
 				318B1BD21C4F2552006C88B6 /* ArcadeAudit.xcdatamodeld in Sources */,
 				31CDCF9C1C4FEF5200AEA4BB /* Machine+CoreDataProperties.swift in Sources */,
+				316EE7001C56D1B70048829F /* HistoryViewController.swift in Sources */,
 				31CDCFA31C502E1900AEA4BB /* Audit.swift in Sources */,
 				31CDCFA21C502E1900AEA4BB /* Audit+CoreDataProperties.swift in Sources */,
 				318B1BD41C4F2552006C88B6 /* MasterViewController.swift in Sources */,

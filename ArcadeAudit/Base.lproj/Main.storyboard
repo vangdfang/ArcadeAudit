@@ -598,7 +598,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="5Aq-sR-5XW" userLabel="Capture"/>
-                    <navigationItem key="navigationItem" id="7QY-oa-Xlg"/>
+                    <navigationItem key="navigationItem" title="Scan Barcode" id="7QY-oa-Xlg"/>
                     <connections>
                         <outlet property="videoView" destination="sgO-3I-JCK" id="v0L-pz-D0X"/>
                         <segue destination="JEX-9P-axG" kind="show" identifier="addMachine" id="aXs-H7-qUv"/>
@@ -609,10 +609,10 @@
             </objects>
             <point key="canvasLocation" x="1461" y="-1771"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Aduit Navigation Controller-->
         <scene sceneID="Myd-25-aJy">
             <objects>
-                <navigationController id="WWf-PT-bLB" sceneMemberID="viewController">
+                <navigationController id="WWf-PT-bLB" userLabel="Aduit Navigation Controller" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="search" id="dQE-5L-joA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cZQ-sh-0ba">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -639,6 +639,7 @@
                     <connections>
                         <segue destination="WWf-PT-bLB" kind="relationship" relationship="viewControllers" id="Leg-sW-ozn"/>
                         <segue destination="TuN-N4-FRh" kind="relationship" relationship="viewControllers" id="qIh-FR-Pnl"/>
+                        <segue destination="lNH-Sn-fhh" kind="relationship" relationship="viewControllers" id="Ky7-4K-U09"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ViY-Qd-xpD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -706,9 +707,120 @@
             </objects>
             <point key="canvasLocation" x="-45" y="-630"/>
         </scene>
+        <!--History Navigation Controller-->
+        <scene sceneID="KQT-UF-4cZ">
+            <objects>
+                <navigationController id="lNH-Sn-fhh" userLabel="History Navigation Controller" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="history" id="0UO-h7-Qiq"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vP7-AH-5nn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="CNy-gH-FcZ" kind="relationship" relationship="rootViewController" id="Nbt-Y1-S55"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tea-wP-YzG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-56" y="353"/>
+        </scene>
+        <!--Historical Data-->
+        <scene sceneID="4eP-mT-RoU">
+            <objects>
+                <viewController title="Historical Data" id="CNy-gH-FcZ" customClass="HistoryViewController" customModule="ArcadeAudit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jab-Sg-HAh"/>
+                        <viewControllerLayoutGuide type="bottom" id="bg8-xa-e54"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xe9-hR-kwW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Revenue (7 days)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVy-57-O2p">
+                                <rect key="frame" x="20" y="64" width="132" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tickets (7 days)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25B-dv-5Of">
+                                <rect key="frame" x="20" y="100" width="121" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="revenueSevenDays" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpY-40-Kga" userLabel="Revenue Seven Days">
+                                <rect key="frame" x="434" y="64" width="146" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ticketsSevenDays" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODm-aG-Cq9">
+                                <rect key="frame" x="444" y="100" width="136" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Revenue (30 days)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znt-s3-51f">
+                                <rect key="frame" x="20" y="136" width="143" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tickets (30 days)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncd-bu-bS6">
+                                <rect key="frame" x="20" y="172" width="132" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="revenueThirtyDays" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tp-Co-a2u">
+                                <rect key="frame" x="437" y="136" width="143" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ticketsThirtyDays" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMR-4b-gba">
+                                <rect key="frame" x="447" y="172" width="133" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mVy-57-O2p" firstAttribute="leading" secondItem="25B-dv-5Of" secondAttribute="leading" id="1pE-lZ-mJn"/>
+                            <constraint firstItem="ODm-aG-Cq9" firstAttribute="centerY" secondItem="25B-dv-5Of" secondAttribute="centerY" id="2lr-Ld-sFU"/>
+                            <constraint firstItem="CMR-4b-gba" firstAttribute="centerY" secondItem="ncd-bu-bS6" secondAttribute="centerY" id="6U5-4o-GNl"/>
+                            <constraint firstItem="mVy-57-O2p" firstAttribute="centerY" secondItem="qpY-40-Kga" secondAttribute="centerY" id="ADt-JO-eJu"/>
+                            <constraint firstItem="ncd-bu-bS6" firstAttribute="top" secondItem="znt-s3-51f" secondAttribute="bottom" constant="15" id="ATB-1V-rjo"/>
+                            <constraint firstItem="znt-s3-51f" firstAttribute="top" secondItem="25B-dv-5Of" secondAttribute="bottom" constant="15" id="EYf-sM-SOo"/>
+                            <constraint firstItem="mVy-57-O2p" firstAttribute="top" secondItem="jab-Sg-HAh" secondAttribute="bottom" id="Ja6-nY-L2X"/>
+                            <constraint firstItem="mVy-57-O2p" firstAttribute="leading" secondItem="xe9-hR-kwW" secondAttribute="leadingMargin" id="ONC-To-vTZ"/>
+                            <constraint firstItem="2tp-Co-a2u" firstAttribute="trailing" secondItem="CMR-4b-gba" secondAttribute="trailing" id="i3B-lf-Fij"/>
+                            <constraint firstItem="25B-dv-5Of" firstAttribute="leading" secondItem="znt-s3-51f" secondAttribute="leading" id="kNA-Xu-XaA"/>
+                            <constraint firstItem="qpY-40-Kga" firstAttribute="trailing" secondItem="ODm-aG-Cq9" secondAttribute="trailing" id="ohR-F3-5EA"/>
+                            <constraint firstItem="ODm-aG-Cq9" firstAttribute="trailing" secondItem="2tp-Co-a2u" secondAttribute="trailing" id="p7u-9J-1ed"/>
+                            <constraint firstItem="znt-s3-51f" firstAttribute="centerY" secondItem="2tp-Co-a2u" secondAttribute="centerY" id="sMc-gO-JlP"/>
+                            <constraint firstItem="znt-s3-51f" firstAttribute="leading" secondItem="ncd-bu-bS6" secondAttribute="leading" id="uaC-ya-JRa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qpY-40-Kga" secondAttribute="trailing" id="vCl-be-Xy9"/>
+                            <constraint firstItem="25B-dv-5Of" firstAttribute="top" secondItem="mVy-57-O2p" secondAttribute="bottom" constant="15" id="vzm-Ny-4Ax"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="51o-tA-J0z"/>
+                    <navigationItem key="navigationItem" title="Historical Data" id="CNk-ta-28R"/>
+                    <connections>
+                        <outlet property="revenueSevenDays" destination="qpY-40-Kga" id="Y0K-8b-QDz"/>
+                        <outlet property="revenueThirtyDays" destination="2tp-Co-a2u" id="zrw-Q2-aPh"/>
+                        <outlet property="ticketsSevenDays" destination="ODm-aG-Cq9" id="Znm-yE-dTx"/>
+                        <outlet property="ticketsThirtyDays" destination="CMR-4b-gba" id="FtX-mg-Fx2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3CK-8D-2K9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="709" y="353"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oSL-6l-1TI"/>
-        <segue reference="AQc-0v-WdP"/>
+        <segue reference="aXs-H7-qUv"/>
+        <segue reference="MS0-sx-foc"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -48,8 +48,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
                 if let viewController = navigationController.visibleViewController as? CameraController {
                     viewController.managedObjectContext = self.managedObjectContext
                 }
+                if let viewController = navigationController.visibleViewController as? HistoryViewController {
+                    viewController.managedObjectContext = self.managedObjectContext
+                }
             }
         }
+        NSFetchedResultsController.deleteCacheWithName("Audits")
+        NSFetchedResultsController.deleteCacheWithName("Machines")
         /*let splitViewController = self.window!.rootViewController as! UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
