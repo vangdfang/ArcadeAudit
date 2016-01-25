@@ -176,6 +176,7 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
                     //print("Unresolved error \(error), \(error.userInfo)")
                     abort()
                 }
+                NSFetchedResultsController.deleteCacheWithName("Machines")
                 controller.detailItem = newMachine
                 controller.managedObjectContext = managedObjectContext
             }
