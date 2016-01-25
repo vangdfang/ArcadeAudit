@@ -58,6 +58,7 @@ class AuditDetailController: UIViewController, UITextFieldDelegate {
     }
     
     var managedObjectContext: NSManagedObjectContext?
+    var previousAudit: Audit?
     
     private func addButtonBarTo(textField: UITextField) {
         let previousBarButton = UIBarButtonItem(title: "Prev", style: UIBarButtonItemStyle.Plain, target: self, action: "didTapPrevious:")
@@ -164,6 +165,23 @@ class AuditDetailController: UIViewController, UITextFieldDelegate {
                 ticketsFourField.enabled = detail.machine!.ticketMechs >= 4
                 addButtonBarTo(ticketsFourField)
             }
+            if let context = managedObjectContext {
+                do {
+                    let fetchRequest = NSFetchRequest(entityName: "Audit")
+                    let machinePredicate = NSPredicate(format: "machine == %@", argumentArray: [detail.machine!])
+                    let datePredicate = NSPredicate(format: "dateTime < %@", argumentArray: [detail.dateTime!])
+                    fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [machinePredicate, datePredicate])
+                    let sortDescriptor = NSSortDescriptor(key: "dateTime", ascending: false)
+                    fetchRequest.sortDescriptors = [sortDescriptor]
+                    fetchRequest.fetchLimit = 1
+                    let audits = try context.executeFetchRequest(fetchRequest) as! [Audit]
+                    if audits.count == 1 {
+                        previousAudit = audits[0]
+                    }
+                } catch {
+                    print("Error fetching past audit: \(error)")
+                }
+            }
         }
     }
     
@@ -224,6 +242,70 @@ class AuditDetailController: UIViewController, UITextFieldDelegate {
             detail.ticketTwo = Int(ticketsTwo.text!)
             detail.ticketThree = Int(ticketsThree.text!)
             detail.ticketFour = Int(ticketsFour.text!)
+            if let previous = previousAudit {
+                var tokens: Int = 0
+                if let thisToken = detail.tokenOne {
+                    if let lastToken = previous.tokenOne {
+                        tokens += Int(thisToken) - Int(lastToken)
+                    }
+                }
+                if let thisToken = detail.tokenTwo {
+                    if let lastToken = previous.tokenTwo {
+                        tokens += Int(thisToken) - Int(lastToken)
+                    }
+                }
+                if let thisToken = detail.tokenThree {
+                    if let lastToken = previous.tokenThree {
+                        tokens += Int(thisToken) - Int(lastToken)
+                    }
+                }
+                if let thisToken = detail.tokenFour {
+                    if let lastToken = previous.tokenFour {
+                        tokens += Int(thisToken) - Int(lastToken)
+                    }
+                }
+                if tokens > 0 {
+                    if detail.machine!.countsGames {
+                        detail.games = tokens
+                        if let gamesField = self.games {
+                            gamesField.text = ((detail.games ?? 0) != 0) ? detail.games?.stringValue : ""
+                        }
+                    } else {
+                        detail.tokens = tokens
+                        if let tokensField = self.tokens {
+                            tokensField.text = ((detail.tokens ?? 0) != 0) ? detail.tokens?.stringValue : ""
+                        }
+                    }
+                }
+                
+                var tickets: Int = 0
+                if let thisTicket = detail.ticketOne {
+                    if let lastTicket = previous.ticketOne {
+                        tickets += Int(thisTicket) - Int(lastTicket)
+                    }
+                }
+                if let thisTicket = detail.ticketTwo {
+                    if let lastTicket = previous.ticketTwo {
+                        tickets += Int(thisTicket) - Int(lastTicket)
+                    }
+                }
+                if let thisTicket = detail.ticketThree {
+                    if let lastTicket = previous.ticketThree {
+                        tickets += Int(thisTicket) - Int(lastTicket)
+                    }
+                }
+                if let thisTicket = detail.ticketFour {
+                    if let lastTicket = previous.ticketFour {
+                        tickets += Int(thisTicket) - Int(lastTicket)
+                    }
+                }
+                if tickets > 0 {
+                    detail.tickets = tickets
+                    if let ticketsField = self.tickets {
+                        ticketsField.text = ((detail.tickets ?? 0) != 0) ? detail.tickets?.stringValue : ""
+                    }
+                }
+            }
             do {
                 try detail.managedObjectContext!.save()
             } catch {
