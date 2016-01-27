@@ -61,6 +61,18 @@ class HistoryViewController: UIViewController {
     @IBOutlet weak var lowPayoutTwoValue: UILabel!
     @IBOutlet weak var lowPayoutPositionThree: UILabel!
     @IBOutlet weak var lowPayoutThreeValue: UILabel!
+    @IBOutlet weak var topPayoutRevenuePositionOne: UILabel!
+    @IBOutlet weak var topPayoutRevenueOneValue: UILabel!
+    @IBOutlet weak var topPayoutRevenuePositionTwo: UILabel!
+    @IBOutlet weak var topPayoutRevenueTwoValue: UILabel!
+    @IBOutlet weak var topPayoutRevenuePositionThree: UILabel!
+    @IBOutlet weak var topPayoutRevenueThreeValue: UILabel!
+    @IBOutlet weak var lowPayoutRevenuePositionOne: UILabel!
+    @IBOutlet weak var lowPayoutRevenueOneValue: UILabel!
+    @IBOutlet weak var lowPayoutRevenuePositionTwo: UILabel!
+    @IBOutlet weak var lowPayoutRevenueTwoValue: UILabel!
+    @IBOutlet weak var lowPayoutRevenuePositionThree: UILabel!
+    @IBOutlet weak var lowPayoutRevenueThreeValue: UILabel!
     
     var managedObjectContext: NSManagedObjectContext?
     
@@ -69,24 +81,44 @@ class HistoryViewController: UIViewController {
         self.configureView()
     }
     
+    enum ReportType {
+        case Revenue
+        case Tickets
+        case TicketsByRevenue
+    }
+    
+    struct EarningsData {
+        var machine: Machine
+        var revenue: Double
+        var tickets: Int
+        var ticketsByRevenue: Double
+    }
+    
     func configureView() {
         if let revenueSevenDaysLabel = revenueSevenDays {
             if let ticketsSevenDaysLabel = ticketsSevenDays {
                 let sevenDayTotals = updateRevenueForDays(7, revenueLabel: revenueSevenDaysLabel, ticketsLabel: ticketsSevenDaysLabel)
                 let totalsByRevenue = sevenDayTotals.sort() { $0.revenue > $1.revenue }
                 let totalsByTickets = sevenDayTotals.sort() { $0.tickets > $1.tickets }
-                updateHighScoreLabel(totalsByRevenue, label: topEarnerPositionOne, value: topEarnerOneValue, position: 0, fieldToPrint: "revenue")
-                updateHighScoreLabel(totalsByRevenue, label: topEarnerPositionTwo, value: topEarnerTwoValue, position: 1, fieldToPrint: "revenue")
-                updateHighScoreLabel(totalsByRevenue, label: topEarnerPositionThree, value: topEarnerThreeValue, position: 2, fieldToPrint: "revenue")
-                updateHighScoreLabel(totalsByRevenue, label: lowEarnerPositionOne, value: lowEarnerOneValue, position: 0, fieldToPrint: "revenue", reverseSort: true)
-                updateHighScoreLabel(totalsByRevenue, label: lowEarnerPositionTwo, value: lowEarnerTwoValue, position: 1, fieldToPrint: "revenue", reverseSort: true)
-                updateHighScoreLabel(totalsByRevenue, label: lowEarnerPositionThree, value: lowEarnerThreeValue, position: 2, fieldToPrint: "revenue", reverseSort: true)
-                updateHighScoreLabel(totalsByTickets, label: topPayoutPositionOne, value: topPayoutOneValue, position: 0, fieldToPrint: "tickets")
-                updateHighScoreLabel(totalsByTickets, label: topPayoutPositionTwo, value: topPayoutTwoValue, position: 1, fieldToPrint: "tickets")
-                updateHighScoreLabel(totalsByTickets, label: topPayoutPositionThree, value: topPayoutThreeValue, position: 2, fieldToPrint: "tickets")
-                updateHighScoreLabel(totalsByTickets, label: lowPayoutPositionOne, value: lowPayoutOneValue, position: 0, fieldToPrint: "tickets", reverseSort: true)
-                updateHighScoreLabel(totalsByTickets, label: lowPayoutPositionTwo, value: lowPayoutTwoValue, position: 1, fieldToPrint: "tickets", reverseSort: true)
-                updateHighScoreLabel(totalsByTickets, label: lowPayoutPositionThree, value: lowPayoutThreeValue, position: 2, fieldToPrint: "tickets", reverseSort: true)
+                let totalsByTicketsByRevenue = sevenDayTotals.sort() { $0.ticketsByRevenue > $1.ticketsByRevenue }
+                updateHighScoreLabel(totalsByRevenue, label: topEarnerPositionOne, value: topEarnerOneValue, position: 0, fieldToPrint: ReportType.Revenue)
+                updateHighScoreLabel(totalsByRevenue, label: topEarnerPositionTwo, value: topEarnerTwoValue, position: 1, fieldToPrint: ReportType.Revenue)
+                updateHighScoreLabel(totalsByRevenue, label: topEarnerPositionThree, value: topEarnerThreeValue, position: 2, fieldToPrint: ReportType.Revenue)
+                updateHighScoreLabel(totalsByRevenue, label: lowEarnerPositionOne, value: lowEarnerOneValue, position: 0, fieldToPrint: ReportType.Revenue, reverseSort: true)
+                updateHighScoreLabel(totalsByRevenue, label: lowEarnerPositionTwo, value: lowEarnerTwoValue, position: 1, fieldToPrint: ReportType.Revenue, reverseSort: true)
+                updateHighScoreLabel(totalsByRevenue, label: lowEarnerPositionThree, value: lowEarnerThreeValue, position: 2, fieldToPrint: ReportType.Revenue, reverseSort: true)
+                updateHighScoreLabel(totalsByTickets, label: topPayoutPositionOne, value: topPayoutOneValue, position: 0, fieldToPrint: ReportType.Tickets)
+                updateHighScoreLabel(totalsByTickets, label: topPayoutPositionTwo, value: topPayoutTwoValue, position: 1, fieldToPrint: ReportType.Tickets)
+                updateHighScoreLabel(totalsByTickets, label: topPayoutPositionThree, value: topPayoutThreeValue, position: 2, fieldToPrint: ReportType.Tickets)
+                updateHighScoreLabel(totalsByTickets, label: lowPayoutPositionOne, value: lowPayoutOneValue, position: 0, fieldToPrint: ReportType.Tickets, reverseSort: true)
+                updateHighScoreLabel(totalsByTickets, label: lowPayoutPositionTwo, value: lowPayoutTwoValue, position: 1, fieldToPrint: ReportType.Tickets, reverseSort: true)
+                updateHighScoreLabel(totalsByTickets, label: lowPayoutPositionThree, value: lowPayoutThreeValue, position: 2, fieldToPrint: ReportType.Tickets, reverseSort: true)
+                updateHighScoreLabel(totalsByTicketsByRevenue, label: topPayoutRevenuePositionOne, value: topPayoutRevenueOneValue, position: 0, fieldToPrint: ReportType.TicketsByRevenue)
+                updateHighScoreLabel(totalsByTicketsByRevenue, label: topPayoutRevenuePositionTwo, value: topPayoutRevenueTwoValue, position: 1, fieldToPrint: ReportType.TicketsByRevenue)
+                updateHighScoreLabel(totalsByTicketsByRevenue, label: topPayoutRevenuePositionThree, value: topPayoutRevenueThreeValue, position: 2, fieldToPrint: ReportType.TicketsByRevenue)
+                updateHighScoreLabel(totalsByTicketsByRevenue, label: lowPayoutRevenuePositionOne, value: lowPayoutRevenueOneValue, position: 0, fieldToPrint: ReportType.TicketsByRevenue, reverseSort: true)
+                updateHighScoreLabel(totalsByTicketsByRevenue, label: lowPayoutRevenuePositionTwo, value: lowPayoutRevenueTwoValue, position: 1, fieldToPrint: ReportType.TicketsByRevenue, reverseSort: true)
+                updateHighScoreLabel(totalsByTicketsByRevenue, label: lowPayoutRevenuePositionThree, value: lowPayoutRevenueThreeValue, position: 2, fieldToPrint: ReportType.TicketsByRevenue, reverseSort: true)
             }
         }
         if let revenueThirtyDaysLabel = revenueThirtyDays {
@@ -96,29 +128,47 @@ class HistoryViewController: UIViewController {
         }
     }
     
-    func updateHighScoreLabel(totals: [(machine: Machine, revenue: Double, tickets: Int)], label: UILabel?, value: UILabel?, position: Int, fieldToPrint: String, reverseSort: Bool=false) {
+    func updateHighScoreLabel(totals: [EarningsData], label: UILabel?, value: UILabel?, position: Int, fieldToPrint: ReportType, reverseSort: Bool=false) {
         if let labelLabel = label {
             if let valueLabel = value {
                 if reverseSort {
                     var valueSet = false
                     var skipped = 0
-                    for var i = totals.count - 1; i >= 0; i-- {
-                        if fieldToPrint == "revenue" && totals[i].revenue > 0.0 {
-                            if skipped == position {
-                                labelLabel.text = totals[i].machine.machineName ?? "(No Name)"
-                                valueLabel.text = String(format: "%0.02f", totals[i].revenue)
-                                valueSet = true
-                                break
+                    loop: for var i = totals.count - 1; i >= 0; i-- {
+                        switch fieldToPrint {
+                        case ReportType.Revenue:
+                            if totals[i].revenue > 0.0 {
+                                if skipped == position {
+                                    labelLabel.text = totals[i].machine.machineName ?? "(No Name)"
+                                    valueLabel.text = String(format: "%0.02f", totals[i].revenue)
+                                    valueSet = true
+                                    break loop
+                                }
+                                skipped++
                             }
-                            skipped++
-                        } else if fieldToPrint == "tickets" && totals[i].tickets > 0 {
-                            if skipped == position {
-                                labelLabel.text = totals[i].machine.machineName ?? "(No Name)"
-                                valueLabel.text = String(totals[i].tickets)
-                                valueSet = true
-                                break
+                            break
+                        case ReportType.Tickets:
+                            if totals[i].tickets > 0 {
+                                if skipped == position {
+                                    labelLabel.text = totals[i].machine.machineName ?? "(No Name)"
+                                    valueLabel.text = String(totals[i].tickets)
+                                    valueSet = true
+                                    break loop
+                                }
+                                skipped++
                             }
-                            skipped++
+                            break
+                        case ReportType.TicketsByRevenue:
+                            if totals[i].ticketsByRevenue > 0.0 {
+                                if skipped == position {
+                                    labelLabel.text = totals[i].machine.machineName ?? "(No Name)"
+                                    valueLabel.text = String(format: "%0.1f", totals[i].ticketsByRevenue)
+                                    valueSet = true
+                                    break loop
+                                }
+                                skipped++
+                            }
+                            break
                         }
                     }
                     if !valueSet {
@@ -128,10 +178,16 @@ class HistoryViewController: UIViewController {
                 } else {
                     if position >= 0 && position < totals.count {
                         labelLabel.text = totals[position].machine.machineName ?? "(No Name)"
-                        if fieldToPrint == "revenue" {
+                        switch fieldToPrint {
+                        case ReportType.Revenue:
                             valueLabel.text = String(format: "%0.02f", totals[position].revenue)
-                        } else if fieldToPrint == "tickets" {
+                            break
+                        case ReportType.Tickets:
                             valueLabel.text = String(totals[position].tickets)
+                            break
+                        case ReportType.TicketsByRevenue:
+                            valueLabel.text = String(format: "%0.1f", totals[position].ticketsByRevenue)
+                            break
                         }
                     } else {
                         labelLabel.text = "N/A"
@@ -142,10 +198,10 @@ class HistoryViewController: UIViewController {
         }
     }
     
-    func updateRevenueForDays(previousDays: Int, revenueLabel: UILabel, ticketsLabel: UILabel) -> [(machine: Machine, revenue: Double, tickets: Int)] {
+    func updateRevenueForDays(previousDays: Int, revenueLabel: UILabel, ticketsLabel: UILabel) -> [EarningsData] {
         var totalRevenue: Double = 0.0
         var totalTickets: Int = 0
-        var machineTotals: [(machine: Machine, revenue: Double, tickets: Int)] = []
+        var machineTotals: [EarningsData] = []
         if let context = managedObjectContext {
             do {
                 let fetchRequest = NSFetchRequest(entityName: "Machine")
@@ -172,7 +228,8 @@ class HistoryViewController: UIViewController {
                         let gameRevenue = Double(gameTokens) * detail.costPerGame
                         totalRevenue += gameRevenue
                         totalTickets += gameTickets
-                        machineTotals.append((machine: detail, revenue: gameRevenue, tickets: gameTickets))
+                        let ticketsByRevenue = (gameRevenue > 0) ? Double(gameTickets) / gameRevenue : 0.0
+                        machineTotals.append(EarningsData(machine: detail, revenue: gameRevenue, tickets: gameTickets, ticketsByRevenue: ticketsByRevenue))
                     } catch {
                         print("Error while fetching recent audits: \(error)")
                     }
