@@ -54,11 +54,9 @@ class AuditViewController: UITableViewController, NSFetchedResultsControllerDele
     func insertNewObject(sender: AnyObject) {
         let context = self.fetchedResultsController.managedObjectContext
         let entity = self.fetchedResultsController.fetchRequest.entity!
-        //let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context)
         
         // If appropriate, configure the new managed object.
         // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-        //newManagedObject.setValue(NSDate(), forKey: "dateTime")
         let newAudit = Audit(entity: entity, insertIntoManagedObjectContext: context)
         newAudit.dateTime = NSDate()
         newAudit.machine = parentItem!

@@ -186,15 +186,6 @@ class AuditDetailController: UIViewController, UITextFieldDelegate {
     }
     
     func keyboardWasShown(notification: NSNotification) {
-        /*let keyboardFrame: CGRect = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-
-        var aRect = self.view.frame;
-        aRect.size.height -= keyboardFrame.height;
-        if let activeField = self.view.viewWithTag(currentTag) {
-            if !CGRectContainsPoint(aRect, activeField.frame.origin) {
-                self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
-            }
-        }*/
     }
     
     func keyboardWillBeHidden(notification: NSNotification) {
